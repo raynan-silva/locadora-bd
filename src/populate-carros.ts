@@ -1,12 +1,16 @@
 import { faker } from '@faker-js/faker';
 import { createConnection } from './db';
 
-const TOTAL_CARROS = 100_000;
-const BATCH_SIZE = 10000;
+const TOTAL_CARROS = 10_000_000;
+const BATCH_SIZE = 100_000;
 const CORES = ['Preto', 'Branco', 'Prata', 'Azul', 'Vermelho', 'Cinza'];
 
 async function main() {
   const conn = await createConnection();
+
+  console.log("Conexão estabelicida!")
+
+  console.log("Iniciando inserção de dados!")
 
   for (let i = 0; i < TOTAL_CARROS; i += BATCH_SIZE) {
     const values: any[] = [];
