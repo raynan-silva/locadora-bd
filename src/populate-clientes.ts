@@ -2,18 +2,22 @@ import { faker } from '@faker-js/faker';
 import { generate as generateCPF } from 'gerador-validador-cpf';
 import { createConnection } from './db';
 
-const TOTAL_CLIENTES = 3942;
-const BATCH_SIZE = 10000;
+const TOTAL_CLIENTES = 10_000_000;
+const BATCH_SIZE = 100_000;
 
 async function main() {
   const conn = await createConnection();
+  console.log("Conexão estabelicida!")
 
+  console.log("Iniciando inserção de dados!")
   for (let i = 0; i < TOTAL_CLIENTES; i += BATCH_SIZE) {
     const values: any[] = [];
 
     for (let j = 0; j < BATCH_SIZE; j++) {
-      const name = faker.person.fullName();
-      const email = faker.internet.email();
+      const firstName = faker.person.firstName();
+      const lastname = faker.person.lastName();
+      const name = firstName + ' ' + lastname
+      const email = faker.internet.email({firstName: firstName, lastName: lastname});
       const birthDate = faker.date.birthdate({ min: 1950, max: 2005, mode: 'year' });
       const cpf = generateCPF();
 
