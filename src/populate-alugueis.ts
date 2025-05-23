@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { RowDataPacket } from 'mysql2/promise';
 import { createConnection } from './db';
 
-const TOTAL_ALUGUEIS = 20_000_000;
+const TOTAL_ALUGUEIS = 5_000_000;
 const BATCH_SIZE = 100_000;
 
 type MaxResult = { maxRes: number } & RowDataPacket;

@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { generate as generateCPF } from 'gerador-validador-cpf';
 import { createConnection } from './db';
 
-const TOTAL_CLIENTES = 10_000_000;
+const TOTAL_CLIENTES = 1_000_000;
 const BATCH_SIZE = 100_000;
 
 async function main() {

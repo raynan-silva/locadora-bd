@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { createConnection } from './db';
 
-const TOTAL_CARROS = 10_000_000;
+const TOTAL_CARROS = 1_000_000;
 const BATCH_SIZE = 100_000;
 const CORES = ['Preto', 'Branco', 'Prata', 'Azul', 'Vermelho', 'Cinza'];
 
