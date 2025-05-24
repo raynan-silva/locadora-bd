@@ -10,7 +10,7 @@ SELECT
     WHEN data_devolvido = data_prevista_devolucao THEN 'No Prazo'
     ELSE 'Adiantado'
   END AS status_devolucao
-FROM aluguel
+FROM aluguel a
 WHERE data_devolvido IS NOT NULL
 ORDER BY dias_atraso DESC
 LIMIT 200;
